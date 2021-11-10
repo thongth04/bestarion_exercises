@@ -4,7 +4,7 @@ require 'byebug'
 # lương 1 ngày, ngày làm viêc và hiển thị kết quả. (Lương = lương 1 ngày x ngày làm)
 
 class Staff
-  @@staff_count = 0
+  @@staffs_count = 0
   attr_reader :id, :name, :position
   def initialize(staff_info)
     @index = staff_info[:index]
@@ -15,7 +15,11 @@ class Staff
     @salary_per_day = staff_info[:salary_per_day]
     @workdays = staff_info[:workdays]
 
-    @@staff_count += 1
+    @@staffs_count += 1
+  end
+
+  def self.count
+    @@staffs_count
   end
 
   def staff_age
@@ -72,6 +76,7 @@ loop do
     when "2"
       puts "---------- THONG TIN NHAN VIEN ----------"
       staffs.each { |staff| staff.show_staff_info }
+      puts "Tong so nhan vien: #{Staff.count}"
     when "3"
       print "Nhap ID nhan vien: "
       staff_id = gets.chomp
