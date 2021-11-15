@@ -15,7 +15,7 @@ begin_create_file = Time.now
     profile: "Profile description"
   }
   CSV.open("db.csv", "w") do |csv|
-    for i in 1..10
+    for i in 1..100
       csv << [
         base_record[:name] + " " +i.to_s,
         base_record[:name].downcase.gsub(' ','') + i.to_s + "@gmail.com",
@@ -40,7 +40,7 @@ end_read_file = Time.now
 begin_import_file = Time.now
   con = PG.connect(dbname: 'ex1211', user:'rails')
   for row in db
-    con.exec("INSERT INTO USER_INFO(name,email,phone,address,dob,profile) 
+    con.exec("INSERT INTO USER_INFO(name, email, phone, address, dob, profile) 
               VALUES('#{row[0]}','#{row[1]}','#{row[2]}','#{row[3]}','#{row[4]}','#{row[5]}')")
   end
 end_import_file = Time.now
@@ -49,4 +49,4 @@ end_import_file = Time.now
 puts "Creating file: #{end_create_file - begin_create_file}s"
 puts "Reading file: #{end_read_file - begin_read_file}s"
 puts "Importing file: #{end_import_file - begin_import_file}s"
-puts "Reading & Importing file: #{end_import_file - begin_read_file}"
+puts "Reading & Importing file: #{end_import_file - begin_read_file}s"
