@@ -2,7 +2,12 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:edit, :update, :destroy]
 
   def index
-    @products = Product.order(id: :desc).paginate(page: params[:page], per_page: 15)
+    search_result = Product.search(params[:term])
+    if search_result && search_result.length > 0
+      @products = search_result
+    else
+      @products = Product.order(id: :desc).paginate(page: params[:page], per_page: 15)
+    end
   end
 
   def new
@@ -45,7 +50,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:sku, :title, :price, :quantity, :image_url)
+    params.require(:product).permit(:sku, :title, :price, :quantity, :image_url, :term)
   end
 
 end

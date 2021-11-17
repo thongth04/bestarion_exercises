@@ -5,7 +5,13 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :quantity, presence: true
 
-
+  def self.search(term)
+    res = []
+    if term && !term.empty?
+      res << Product.find_by(title: term)
+    end
+    res
+  end
 
   # def find_by_name(name)
   #   products.select { |product| name == product.name }
