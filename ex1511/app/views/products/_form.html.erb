@@ -8,28 +8,28 @@
         <%= render "shared/error_messages", obj: @product %>
 
         <div class="form-group">
-          <%= f.label :sku %><br>
-          <%= f.text_field :sku, autofocus: true, class: "form-control p-2" %>
+          <% f.label :sku %><br>
+          <%= f.text_field :sku, autofocus: true, class: "form-control p-2", placeholder: "SKU" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :title %><br>
-          <%= f.text_field :title, class: "form-control p-2" %>
+          <% f.label :title %><br>
+          <%= f.text_field :title, class: "form-control p-2", placeholder: "Title" %>
         </div>
         
         <div class="form-group">
-          <%= f.label :price %><br>
-          <%= f.number_field :price, min: 0, step: 1, class: "form-control p-2", placeholder: "VND" %>
+          <% f.label :price %><br>
+          <%= f.number_field :price, min: 0, step: 1, class: "form-control p-2", placeholder: "Price (VND)" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :quantity %><br>
-          <%= f.number_field :quantity, in: 0..100, step: 1, class: "form-control p-2" %>
+          <% f.label :quantity %><br>
+          <%= f.number_field :quantity, in: 0..100, step: 1, class: "form-control p-2", placeholder: "Quantity" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :image_url %><br>
-          <%= f.text_field :image_url, class: "form-control p-2" %>
+          <% f.label :image_url %><br>
+          <%= f.text_field :image_url, class: "form-control p-2", placeholder: "Image URL" %>
         </div>
 
         <div class="actions mt-4 mb-2">
