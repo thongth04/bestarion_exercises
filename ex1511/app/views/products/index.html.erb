@@ -2,13 +2,21 @@
   <div style="position: fixed; bottom: 20px; right: 150px; z-index: 1">
     <%= link_to "+", new_product_path, class: "fs-3 btn btn-success rounded-circle" %>
   </div>
-  <h1 class="text-center pt-4 mb-5">Products Listing</h1>
+  <h1 class="text-center pt-4 mb-4">Products Listing</h1>
+
   <% if @products.count > 0 %>
+    <div class="apple_pagination">
+      <%= will_paginate @posts, :container => false %>
+    </div>
+
     <% @products.each do |product| %>
       <%= render 'product', product: product %>
     <% end %>
+    
+    <div class="apple_pagination">
+      <%= will_paginate @posts, :container => false %>
+    </div>
   <% else %>
     <p class="fs-4 ms-4 mt-4">Opp! Your inventory is empty, please add products to display.</p>
   <% end %>
-  
 </div>

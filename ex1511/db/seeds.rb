@@ -6,13 +6,7 @@
 #   movies = Movie.create([{ title: 'Star Wars' }, { title: 'Lord of the Rings' }])
 #   Character.create(title: 'Luke', movie: movies.first)
 
-products = [
-  {
-    title: "Phin Đen Đá - Đậm Đà",
-    price: 29182,
-    image_url:
-      "https://www.phuclong.com.vn/uploads/dish/bf528a6e32714d-resize_damdadunggu07.png",
-  },
+products = Product.create([
   {
     title: "Phin Sữa Đá - Năng Lượng",
     price: 34045,
@@ -396,4 +390,4 @@ products = [
     image_url:
       "https://www.phuclong.com.vn/uploads/dish/0db8fbecf2cb26-caphahazelnutaaxay.jpg",
   },
-];
+]);
