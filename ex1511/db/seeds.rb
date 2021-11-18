@@ -187,7 +187,7 @@ products = Product.create([
       "https://www.phuclong.com.vn/uploads/dish/4a625d6564e694-sinhtdu.png",
   },
   {
-    title: "Sinh tố trái cây nhiệt đới (Xoài, cam, dừa, thơm, chanh dây.)",
+    title: "Sinh tố trái cây nhiệt đới",
     price: 53500,
     image_url:
       "https://www.phuclong.com.vn/uploads/dish/4cebb077373630-sinhttricynhiti.png",

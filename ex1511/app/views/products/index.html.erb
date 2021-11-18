@@ -1,24 +1,18 @@
 <div class="pb-5">
   <h1 class="text-center pt-4 mb-4">Products Listing</h1>
 
-  <% if @products.count == 0 %>
-    <p class="fs-4 ms-4 mt-4">Opp!!! Cannot find any products</p>
-    
-  <% elsif @products.count == 1 %>
+  <% if @products.count > 0 %>
+    <div class="apple_pagination">
+      <%= will_paginate @products, :container => false %>
+    </div>
     <% @products.each do |product| %>
       <%= render 'product', product: product %>
     <% end %>
-
+    <div class="apple_pagination">
+      <%= will_paginate @products, :container => false %>
+    </div> 
   <% else %>
-    <div class="apple_pagination">
-      <%= will_paginate @products, :container => false %>
-    </div> 
-    <% @products.each do |product| %>
-      <%= render 'product', product: product %>
-    <% end %>
-    <div class="apple_pagination">
-      <%= will_paginate @products, :container => false %>
-    </div> 
+    <p class="fs-4 ms-4 mt-4">Opp!!! Cannot find any products</p>
   <% end %>
 
   <div style="position: fixed; bottom: 20px; right: 150px; z-index: 1">
