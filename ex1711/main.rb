@@ -1,19 +1,35 @@
 require 'byebug'
-# Khởi tạo một mảng random gồm n (n≤ 99) số tự nhiên, với n nhập từ bàn phím, các phần tử trong mảng từ 1 đến 9.
-# Sau đó hiển thị các dãy con tăng trong mảng. Vd: mảng được khởi tạo ngẫu nhiên là: [6, 8, 2, 5, 3, 6, 1, 2, 7, 1]
-# Output: 
-#  + mảng con tăng 1: 6, 8
-#  + mảng con tăng 2: 2, 5
-#  + mảng con tăng 3: 3, 6
-#  + mảng con tăng 4: 1, 2, 7
-#  + mảng con tăng 5: 1
+=begin
+Khởi tạo một mảng random gồm n (n≤ 99) số tự nhiên, với n nhập từ bàn phím, các phần tử trong mảng từ 1 đến 9.
+Sau đó hiển thị các dãy con tăng trong mảng. Vd: mảng được khởi tạo ngẫu nhiên là: [6, 8, 2, 5, 3, 6, 1, 2, 7, 1]
+Output: 
+ + mảng con tăng 1: 6, 8
+ + mảng con tăng 2: 2, 5
+ + mảng con tăng 3: 3, 6
+ + mảng con tăng 4: 1, 2, 7
+ + mảng con tăng 5: 1
+=end
+
+# HAM NHAP SO LUONG PHAN TU CUA MANG
+def input_array_length
+  print "Ban hay nhap do dai mang la so tu nhien n (n≤ 99): "
+  n = Integer(gets)
+  if n >= 0 && n <= 99
+    return n 
+  else
+    raise
+  end
+rescue
+  print "Nhap khong hop le, vui long nhap lai! \n\n"
+  retry
+end
 
 my_array = []
-print "Ban hay nhap so phan tu cua mang: "
-n = gets.chomp.to_i
+n = input_array_length
 n.times { my_array << rand(1..9) }
 print "Mang cua ban la: "
 p my_array
+
 
 my_array[n] = 0
 sub_arrays = [] 
@@ -32,6 +48,7 @@ while i < n
   end
   i += 1
 end
+
 
 i = 1
 for sub_array in sub_arrays
