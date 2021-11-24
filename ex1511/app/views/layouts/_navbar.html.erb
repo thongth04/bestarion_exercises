@@ -1,6 +1,8 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <h2 class="navbar-brand">Exercise 4</h2>
+    <h2 class="navbar-brand">
+      <%= link_to "Exercise 4", root_path, class:"text-white text-decoration-none" %>
+    </h2>
       <%= form_tag(products_path, method: :get, class: "d-flex") do %>
         <%= text_field_tag(:term, params[:term], class: "form-control me-2", placeholder: "Type product name") %>
         <%= submit_tag('Search', class: "btn btn-outline-success") %>

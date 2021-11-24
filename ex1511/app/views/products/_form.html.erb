@@ -16,6 +16,11 @@
           <% f.label :title %><br>
           <%= f.text_field :title, class: "form-control p-2", placeholder: "Title" %>
         </div>
+
+        <div class="form-group">
+          <%f.label :category %><br>
+          <%= f.select :category, ["Drink", "Food", "Others"], {}, { class: "form-control p-2" } %>
+        </div>
         
         <div class="form-group">
           <% f.label :price %><br>

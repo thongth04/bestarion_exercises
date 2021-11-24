@@ -1,0 +1,6 @@
+<div class="d-flex justify-content-center mb-4">
+  <%= link_to "All", root_path, class:"btn btn-success rounded-pill mx-2 px-4" %>
+  <%= button_to "Drinks", products_path, method: :get, params: { category_tag: "Drink" }, class:"btn btn-success rounded-pill mx-2 px-4" %>
+  <%= button_to "Foods", products_path, method: :get, params: { category_tag: "Food" }, class:"btn btn-success rounded-pill mx-2 px-4" %>
+  <%= button_to "Others", products_path, method: :get, params: { category_tag: "Others" }, class:"btn btn-success rounded-pill mx-2 px-4" %>
+</div>
