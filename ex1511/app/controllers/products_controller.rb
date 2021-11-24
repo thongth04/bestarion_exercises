@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:edit, :update, :destroy]
 
   def index
+    # @categories = Category.all
     @products = Product.search(params[:term]).paginate(page: params[:page], per_page: 8).order(created_at: :desc)
   end
 

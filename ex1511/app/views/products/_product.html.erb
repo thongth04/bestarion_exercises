@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-6">
       <div class="card-body">
-        <h4 class="card-title mb-3"><%= product.title %></h4>
+        <h4 class="card-title mb-3"><%= truncate product.title, length:40 %></h4>
         <p class="card-text"><b>SKU: &ensp;</b><%= product.sku %></p>
         <p class="card-text"><b>Price: &ensp;</b><%= number_to_currency(product.price, unit:"", precision: 0, delimiter:',') %> VND</p>
         <p class="card-text"><b>Quantity: &ensp;</b><%= product.quantity %></p>

@@ -1,9 +1,12 @@
 class Product < ApplicationRecord
+  belongs_to  :categories
+  
+  attribute :quantity, default: 0
 
-  validates :sku, presence: true, uniqueness: true
-  validates :title, presence: true, length: {minimum: 5, maximum:40}
-  validates :price, presence: true
-  validates :quantity, presence: true
+  # validates :sku, presence: true, uniqueness: true
+  # validates :title, presence: true, length: {minimum: 5, maximum:40}
+  # validates :price, presence: true
+  # validates :quantity, presence: true
 
   def self.search(term)
     if term
