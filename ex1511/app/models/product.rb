@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
+  has_many :sizings, dependent: :destroy
 
-  attribute :price, default: 0
-  attribute :quantity, default: 0
+  # attribute :price, default: 0
+  # attribute :quantity, default: 0
 
   validates :sku, presence: true, uniqueness: true
   validates :title, presence: true, length: {minimum: 5, maximum:40}

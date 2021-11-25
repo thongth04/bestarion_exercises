@@ -1,0 +1,8 @@
+<% product.sizings.each do |s| %>
+  <p><strong>Size:</strong> <%= s.size_tag %></p>
+  <p>Quantity: <%= s.quantity %></p>
+
+  <% if s.image.attached? %>
+    <%= image_tag s.image, width: 200 %>
+  <% end %>
+<% end %>

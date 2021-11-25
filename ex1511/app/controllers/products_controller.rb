@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only: [:edit, :update, :destroy]
+  before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:category_tag]
@@ -7,6 +7,9 @@ class ProductsController < ApplicationController
     else
       @products = Product.search(params[:term]).paginate(page: params[:page], per_page: 8).order(created_at: :desc)
     end
+  end
+
+  def show
   end
 
   def new
@@ -18,7 +21,7 @@ class ProductsController < ApplicationController
 
     if @product.save
       flash[:notice] = "Product was created successfully!"
-      redirect_to products_path
+      redirect_to @product
     else
       render :new
     end
@@ -43,13 +46,11 @@ class ProductsController < ApplicationController
   end
 
   private
+    def find_product
+      @product = Product.find(params[:id])
+    end
 
-  def find_product
-    @product = Product.find(params[:id])
-  end
-
-  def product_params
-    params.require(:product).permit(:sku, :title, :price, :quantity, :image_url, :category)
-  end
-
+    def product_params
+      params.require(:product).permit(:sku, :title, :price, :quantity, :image_url, :category)
+    end
 end

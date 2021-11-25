@@ -1,0 +1,12 @@
+<div class="ms-5 mt-4">
+  <%= image_tag @product.image_url, width: 400 %>
+  <h1><%= @product.title %></h1>
+  <p><b>SKU: &ensp;</b><%= @product.sku %></p>
+  <p><b>Price: &ensp;</b><%= number_to_currency(@product.price, unit:"", precision: 0, delimiter:',') %> VND</p>
+  <p><b>Quantity: &ensp;</b><%= @product.quantity %></p>
+  
+  <%= render 'sizings/sizings', product: @product %>
+
+  <h3>Add size</h3>
+  <%= render 'sizings/form' %>
+</div>
