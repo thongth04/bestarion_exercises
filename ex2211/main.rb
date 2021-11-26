@@ -24,3 +24,8 @@ for num in numbers
   end
 end
 p res
+
+# Code e viết rất gọn, dễ đọc
+# pair_of_num =(arrays - [index]).select{|item| item + index == target_sum} -> a thấy e lấy arrays - index -> sẽ thành 1 mãng con mới
+# kg chứa index rồi e dùng select (tức duyệt qua từng phần tử trong trong mảng con) để tìm giá trị => về bản chất cũng giống với việc e 
+# dùng 2 dòng for nhé. 
