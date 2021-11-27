@@ -1,25 +1,28 @@
-<%= form_with model: [ @product, @product.sizings.build ] do |f| %>
+<div class="border border-success p-3">
+  <%= form_with model: [ @product, @sizing] do |f| %>
 
-  <%= f.radio_button :size_tag, "S" %>
-  <%= f.label "Small"%>
-  <%= f.radio_button :size_tag, "M", checked: true %>
-  <%= f.label "Medium"%>
-  <%= f.radio_button :size_tag, "L" %>
-  <%= f.label "Large"%>
-  <%= f.radio_button :size_tag, "XL" %>
-  <%= f.label "Extra" %>
+    <span><b>Choose size: &ensp;</b></span>
+    <%= f.radio_button :size_tag, "S" %>
+    <%= f.label "Small", class:"me-2"%>
+    <%= f.radio_button :size_tag, "M", checked: true %>
+    <%= f.label "Medium", class:"me-2"%>
+    <%= f.radio_button :size_tag, "L" %>
+    <%= f.label "Large", class:"me-2"%>
+    <%= f.radio_button :size_tag, "XL" %>
+    <%= f.label "Extra", class:"me-2" %>
+  
+    <div class="form-group mt-2">
+      <b><%= f.label :image %>:</b><br>
+      <div class="ms-5"><%= f.file_field :image, class:"form-control" %></div>
+    </div>
 
-  <div class="form-group">
-    <% f.label :quantity %><br>
-    <%= f.number_field :quantity, min: 0, step: 1, placeholder: "Quantity" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit "Save changes" %>
-  </div>
-<% end %>
+    <div class="form-group mt-2">
+      <b><%= f.label :quantity %>:</b><br>
+      <div class="ms-5"><%= f.number_field :quantity, min: 0, step: 1, placeholder: "Quantity", class:"form-control" %></div>
+    </div><br>
+  
+    <div class="form-group d-flex justify-content-end">
+      <%= f.submit "Save changes", class:"btn btn-success" %>
+    </div>
+  <% end %>
+</div>

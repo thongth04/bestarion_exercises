@@ -1,15 +1,27 @@
 class SizingsController < ApplicationController
   before_action :find_product
-
+  
+  def new
+    @sizing = @product.sizings.build
+  end
+  
   def create
     @sizing = @product.sizings.create(sizing_params)
     redirect_to product_path(@product)
   end
 
   def edit
+    @sizing = @product.sizings.find(params[:id])
   end
 
   def update
+    @sizing = @product.sizings.find(params[:id])
+
+    if @sizing.update(sizing_params)
+      redirect_to @product
+    else
+      render :edit
+    end
   end
 
   def destroy

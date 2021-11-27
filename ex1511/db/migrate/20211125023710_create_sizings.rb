@@ -3,7 +3,7 @@ class CreateSizings < ActiveRecord::Migration[6.1]
     create_table :sizings do |t|
       t.string :size_tag
       t.integer :quantity
-      t.string :image_url
+      t.integer :product_id
 
       t.timestamps
     end

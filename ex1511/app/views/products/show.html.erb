@@ -1,12 +1,18 @@
-<div class="ms-5 mt-4">
-  <%= image_tag @product.image_url, width: 400 %>
-  <h1><%= @product.title %></h1>
-  <p><b>SKU: &ensp;</b><%= @product.sku %></p>
-  <p><b>Price: &ensp;</b><%= number_to_currency(@product.price, unit:"", precision: 0, delimiter:',') %> VND</p>
-  <p><b>Quantity: &ensp;</b><%= @product.quantity %></p>
-  
-  <%= render 'sizings/sizings', product: @product %>
+<div class="mt-4">
+  <div class="row">
+    <div class="col-4 mt-5 ms-5">
+      <%= image_tag @product.image_url, class:"mw-100" %>
+    </div>
+    
+    <div class="col-7 w-50 ms-5">
+      <h1><%= @product.title %></h1>
+      <p><b>SKU: &ensp;</b><%= @product.sku %></p>
+      <p><b>Price: &ensp;</b><%= number_to_currency(@product.price, unit:"", precision: 0, delimiter:',') %> VND</p>
+      <p><b>Category: &ensp;</b><%= @product.category %></p>
 
-  <h3>Add size</h3>
-  <%= render 'sizings/form' %>
+      <%= link_to "Add sizing", new_product_sizing_path(@product), class: "btn btn-outline-primary mb-4 p-2" %>
+
+      <%= render 'sizings/sizings', product: @product %>
+    </div>
+  </div>
 </div>

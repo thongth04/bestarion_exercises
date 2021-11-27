@@ -1,8 +1,19 @@
-<% product.sizings.each do |s| %>
-  <p><strong>Size:</strong> <%= s.size_tag %></p>
-  <p>Quantity: <%= s.quantity %></p>
-
-  <% if s.image.attached? %>
-    <%= image_tag s.image, width: 200 %>
-  <% end %>
+<% if product.sizings.count > 0 %>
+  <p><b>Size:</b></p>
+  <div class="d-flex">
+    <% product.sizings.each do |s| %>
+      <div class="me-3">
+        <% if s.image.attached? %>
+          <%= image_tag s.image, width: 100, class:"mb-2" %>
+        <% end %>
+        <p><%= s.size_tag %> : <%= s.quantity %> (sp)</p>
+        <%= link_to "Edit", edit_product_sizing_path(s), class:"text-decoration-none" %> |
+        <%= link_to "Remove", product_sizing_path(s), 
+                          method: :delete,
+                          data: { confirm: "Are you sure?" }, class:"text-decoration-none" %>
+      </div>
+    <% end %>
+  </div> 
+<% else %>
+  <p><small><i>There is no options</i></small></p>
 <% end %>

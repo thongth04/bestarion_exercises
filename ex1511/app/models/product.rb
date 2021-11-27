@@ -4,11 +4,13 @@ class Product < ApplicationRecord
   # attribute :price, default: 0
   # attribute :quantity, default: 0
 
+  VALID_CATEGORIES = ['Drink', 'Food', 'Others']
+
   validates :sku, presence: true, uniqueness: true
   validates :title, presence: true, length: {minimum: 5, maximum:40}
   validates :price, presence: true
   validates :quantity, presence: true
-  validates :category, inclusion: { in: %w(Drink Food Others), message: "%{value} is not a valid value" }
+  validates :category, inclusion: { in: VALID_CATEGORIES }
 
 
   def self.search(term)
