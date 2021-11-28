@@ -17,7 +17,14 @@ def check_order_sub_arrays(my_arrays, sub_arrays)
   compared_arrays == sub_arrays
 end
 
-# NOTE: CHUONG TRINH CHI DUNG NEU CAC PHAN TU CUA MANG KHONG TRUNG NHAU
+# CASE: CAC PHAN TU CUA MANG KHONG TRUNG NHAU
 a = [5, 1, 22, 26, 6, -1, 8, 10]
 b = [1, 6, -1, 10]
 puts check_order_sub_arrays(a, b)
+
+# CASE: CAC PHAN TU CUA MANG CO TRUNG NHAU
+c = [5, 1, 22, 26, 6, -1, 8, 6, 10, 5]
+d = [1, 6, -1, 6, 10, 5]
+puts check_order_sub_arrays(c, d)
+
+# NOTE: CHUONG TRINH CHI DUNG TRONG CASE CAC PHAN TU CUA MANG KHONG TRUNG NHAU
