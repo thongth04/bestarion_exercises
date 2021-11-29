@@ -1,5 +1,5 @@
 class SizingsController < ApplicationController
-  before_action :find_product
+  before_action :find_product, except: [:edit]
   
   def new
     @sizing = @product.sizings.build
@@ -11,7 +11,8 @@ class SizingsController < ApplicationController
   end
 
   def edit
-    @sizing = @product.sizings.find(params[:id])
+    @sizing = Sizing.find(params[:product_id])
+    @product = @sizing.product
   end
 
   def update

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'products#index'
 
   resources :products do
-    resources :sizings, only: [:new, :create, :edit, :update, :destroy]
+    resources :sizings
   end
 
 end

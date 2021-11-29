@@ -1,14 +1,14 @@
 <% if product.sizings.count > 0 %>
   <p><b>Size:</b></p>
   <div class="d-flex">
-    <% product.sizings.each do |s| %>
+    <% product.sizings.each do |sizing| %>
       <div class="me-3">
-        <% if s.image.attached? %>
-          <%= image_tag s.image, width: 100, class:"mb-2" %>
+        <% if sizing.image.attached? %>
+          <%= image_tag sizing.image, width: 100, class:"mb-2" %>
         <% end %>
-        <p><%= s.size_tag %> : <%= s.quantity %> (sp)</p>
-        <%= link_to "Edit", edit_product_sizing_path(s), class:"text-decoration-none" %> |
-        <%= link_to "Remove", product_sizing_path(s), 
+        <p><%= sizing.size_tag %> : <%= sizing.quantity %> (sp)</p>
+        <%= link_to "Edit", edit_product_sizing_path(sizing), class:"text-decoration-none" %> |
+        <%= link_to "Remove", [sizing.product, sizing], 
                           method: :delete,
                           data: { confirm: "Are you sure?" }, class:"text-decoration-none" %>
       </div>

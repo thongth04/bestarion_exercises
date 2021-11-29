@@ -1,10 +1,11 @@
 class Product < ApplicationRecord
   has_many :sizings, dependent: :destroy
+  has_one_attached :image
 
-  # attribute :price, default: 0
-  # attribute :quantity, default: 0
+  attribute :price, default: 0
+  attribute :quantity, default: 0
 
-  VALID_CATEGORIES = ['Drink', 'Food', 'Others']
+  VALID_CATEGORIES = ['Drinks', 'Foods', 'Others']
 
   validates :sku, presence: true, uniqueness: true
   validates :title, presence: true, length: {minimum: 5, maximum:40}
@@ -33,8 +34,7 @@ class Product < ApplicationRecord
   def self.fill_out_attr
     products = Product.all
     for product in products
-      product[:sku] = "SP1000" + product[:id].to_s
-      product[:quantity] = 40
+      product[:product_type] = "drink"
       product.save
     end
   end

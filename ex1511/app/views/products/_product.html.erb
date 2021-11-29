@@ -1,7 +1,9 @@
 <div class="card mx-auto mb-3" style="max-width: 1000px; min-height: 200px">
   <div class="row g-0">
     <div class="col-md-3">
-      <img src="<%= product.image_url %>" class="rounded-start img-thumbnail" style="max-width: 200px" alt="...">
+      <% if product.image.attached? %>
+        <%= image_tag product.image, class:"rounded-start img-thumbnail", style:"max-width: 200px;" %>
+      <% end %>
     </div>
     <div class="col-md-6">
       <div class="card-body">

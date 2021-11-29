@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2021_11_25_121648) do
     t.string "title"
     t.integer "price"
     t.integer "quantity"
-    t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "category"
@@ -54,11 +53,13 @@ ActiveRecord::Schema.define(version: 2021_11_25_121648) do
   create_table "sizings", force: :cascade do |t|
     t.string "size_tag"
     t.integer "quantity"
-    t.integer "product_id"
+    t.integer "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_sizings_on_product_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "sizings", "products"
 end
