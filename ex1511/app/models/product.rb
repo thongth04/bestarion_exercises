@@ -12,7 +12,8 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :quantity, presence: true
   validates :category, inclusion: { in: VALID_CATEGORIES }
-
+  validates :image, presence: :true
+  
 
   def self.search(term)
     # byebug

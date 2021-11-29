@@ -6,4 +6,7 @@ class Sizing < ApplicationRecord
 
   attribute :quantity, default: 0
   validates :size_tag, inclusion: { in: VALID_SIZE_TAGS }
+  validates :quantity, presence: :true
+  validates :image, presence: :true
+
 end

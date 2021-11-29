@@ -7,7 +7,7 @@
           <%= image_tag sizing.image, width: 100, class:"mb-2" %>
         <% end %>
         <p><%= sizing.size_tag %> : <%= sizing.quantity %> (sp)</p>
-        <%= link_to "Edit", edit_product_sizing_path(sizing), class:"text-decoration-none" %> |
+        <%= link_to "Edit", [:edit, sizing.product, sizing], class:"text-decoration-none" %> |
         <%= link_to "Remove", [sizing.product, sizing], 
                           method: :delete,
                           data: { confirm: "Are you sure?" }, class:"text-decoration-none" %>
