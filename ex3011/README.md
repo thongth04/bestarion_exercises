@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Exercise:
+Tạo form đăng ký user gồm mail (đúng format), mật khẩu (tối thiểu 6 ký tự), ngày tháng năm sinh, số điện thoại(9 chữ số) đăng ký thành công hiện thông báo bạn đã đăng ký thành công và chuyển qua 1 trang khác. Nếu không đúng dữ liệu hiện thị lỗi và yêu cầu nhập lại.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 3.0.2
 
-* System dependencies
+* Gem: bcrypt
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Frontend: Bootstrap
