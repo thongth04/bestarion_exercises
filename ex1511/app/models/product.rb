@@ -8,11 +8,11 @@ class Product < ApplicationRecord
   VALID_CATEGORIES = ['Drinks', 'Foods', 'Others']
 
   validates :sku, presence: true, uniqueness: true
-  validates :title, presence: true, length: {minimum: 5, maximum:40}
+  validates :title, presence: true, length: { minimum: 5, maximum:40 }
   validates :price, presence: true
   validates :quantity, presence: true
   validates :category, inclusion: { in: VALID_CATEGORIES }
-  validates :image, presence: :true
+  validates :image, presence: true
   
 
   def self.search(term)

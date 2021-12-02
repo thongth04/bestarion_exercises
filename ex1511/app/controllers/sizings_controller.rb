@@ -1,6 +1,10 @@
 class SizingsController < ApplicationController
   before_action :find_product
   
+  def show
+    render html: '<h1>Opp!!! Something went wrong</h1>'.html_safe
+  end
+
   def new
     @sizing = @product.sizings.build
   end
