@@ -28,3 +28,7 @@ d = [1, 6, -1, 6, 10, 5]
 puts check_order_sub_arrays(c, d)
 
 # NOTE: CHUONG TRINH CHI DUNG TRONG CASE CAC PHAN TU CUA MANG KHONG TRUNG NHAU
+# Code e viết gọn, trình bày rõ ràng, có chia case
+# E sử dụng include để check xem phần tử có tồn tại trong mảng kg -> sẽ giống như e sử dụng vòng for rồi ah
+# Nếu e sử dụng include? thì e có thể viết hàm check_order_sub_arrays bằng 1 dòng thôi ah
+# VD: sub_arrays == my_arrays.select{|x| sub_arrays.include?(x)}
