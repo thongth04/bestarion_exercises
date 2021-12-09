@@ -1,6 +1,7 @@
 /* HEADER SECTION */
 header {
-  height: 120px;
+  height: 150px;
+  padding-top: 20px;
   background-color: black;
   color: white;
 }
@@ -9,9 +10,13 @@ header {
   justify-content: space-between;
   padding-top: 15px;
 }
+header .brand {
+  letter-spacing: 15px;
+  text-transform: uppercase;
+}
 header ul{
   width: 30%;
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   justify-content: space-between;  
 }
@@ -39,9 +44,27 @@ header ul li{
 /* FOOTER SECTION */
 footer {
   background-color: black;
+  color: lightgray;
+  padding: 50px;
+}
+#info {
+  margin-bottom: 40px;
+}
+#info .title {
   color: white;
+  font-weight: 600;
+}
+#info input {
+  width: 120px;
+  background-color: black;
+  color: lightgrey;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid lightgrey;
+  margin-bottom: 15px;
+}
+#social {
   text-align: center;
-  padding: 20px;
 }
 
 
