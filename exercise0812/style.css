@@ -31,10 +31,11 @@ header ul li a {
   text-decoration: none;
   color: lightgray;
 }
-#menu select{
-  background-color: black;
+#menu .dropdown{
   color: lightgray;
-  border: none;
+}
+#menu .dropdown:hover{
+  cursor: pointer;
 }
 
 /* BANNER SECTION */
