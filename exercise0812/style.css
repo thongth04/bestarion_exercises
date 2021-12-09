@@ -1,0 +1,47 @@
+/* HEADER SECTION */
+header {
+  height: 120px;
+  background-color: black;
+  color: white;
+}
+#header-top {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+header ul{
+  width: 30%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;  
+}
+header ul li{
+  display: inline-block;
+}
+
+/* BANNER SECTION */
+#banner {
+  height: 500px;
+  background-color: gray;
+}
+
+/* PRODUCT LISTING SECTION */
+#filter {
+  display: flex;
+  margin: 10px 20px;
+  justify-content: space-between;
+}
+#grid-list {
+  height: 100vh;
+  background-color: lightgrey;
+}
+
+/* FOOTER SECTION */
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+
