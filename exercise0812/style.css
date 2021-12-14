@@ -13,6 +13,9 @@ header {
 #header-top i {
   width: 50px;
 }
+#header-top i:hover {
+  cursor: pointer;
+}
 header .brand {
   letter-spacing: 10px;
   text-transform: uppercase;
@@ -30,6 +33,9 @@ header ul li {
 header ul li a {
   text-decoration: none;
   color: lightgray;
+}
+header ul li a:hover {
+  color: pink;
 }
 #menu .dropdown{
   color: lightgray;
@@ -52,8 +58,14 @@ header ul li a {
   color: crimson;
   font-style: italic;
   font-size: 100px;
+  font-weight: 500;
   letter-spacing: 20px;
   word-spacing: 25px;
+  transition: all 1.5s;
+}
+#banner .title:hover{
+  cursor: default;
+  transform: scale(1.08);
 }
 
 /* PRODUCT LISTING SECTION */
@@ -69,6 +81,9 @@ header ul li a {
   border-radius: 20px;
   border-color: gray;
 }
+#filter select:hover {
+  cursor: pointer;
+}
 #grid-list {
   width: 85%;
   margin: 20px auto;
@@ -78,6 +93,13 @@ header ul li a {
 }
 #grid-list .col {
   margin-bottom: 20px;
+  transition: all 200ms;
+}
+#grid-list .col:hover {
+  cursor: pointer;
+  z-index: 2;
+  overflow: hidden;
+  transform: scale(1.06);
 }
 #grid-list .col img {
   width: 100%;
@@ -112,6 +134,11 @@ footer {
   border-bottom: 2px solid lightgrey;
   margin-bottom: 15px;
 }
+#info input:focus{
+  transform: scale(1.06);
+  z-index: 2;
+  overflow: hidden
+}
 #social {
   text-align: center;
 }
@@ -119,5 +146,6 @@ footer {
   font-size: 30px;
   width: 70px;
 }
-
-
+#social i:hover{
+  cursor: pointer;
+}
