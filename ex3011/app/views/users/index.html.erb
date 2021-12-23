@@ -1,4 +1,40 @@
-<%= @users %>
-<br><br>
+<div class="container mb-5">
+  <h1 class="text-center mt-4 mb-5">Users Management</h1>
 
-<%= link_to "Return to homepage", root_path%>
+  <% if @users.count > 0 %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Birthday</th>
+          <th scope="col" class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <th scope="row"><%= user.id %></th>
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td><%= user.phone %></td>
+            <td><%= user.birthday %></td>
+            <td>
+              <div class="d-flex justify-content-center">
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                  <%= link_to "Show", user_path(user), class:"btn btn-info" %>
+                  <%= link_to "Edit", edit_user_path(user), class:"btn btn-warning" %>
+                  <%= link_to "Delete", user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger" %>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="fs-4 ms-4 mt-4">Opp!!! Cannot find any users</p>
+  <% end %>
+</div>
