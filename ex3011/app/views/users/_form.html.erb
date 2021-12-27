@@ -32,10 +32,21 @@
           <%= form.password_field :password, class: "form-control p-2 w-75", placeholder: "password contains minimum 6 characters" %>
         </div>
 
-        <div class="actions mt-4 mb-2">
-          <%= form.submit "#{@user.new_record? ? "Sign Up" : "Update account"}", class: "btn btn-primary w-100 p-2" %>
-        </div>
-        <div class="text-center"><%= link_to "Cancel", root_path, class:"text-decoration-none text-primary"%></div>
+        <% if @user.new_record? %>
+          <div class="actions mt-4 mb-2">
+            <%= form.submit "Sign Up", class: "btn btn-primary w-100 p-2" %>
+          </div>
+          <div class="text-center">
+            <span>Already have an account? </span>
+            <%= link_to "Log In", login_path, class:"text-decoration-none text-primary"%>
+          </div>
+        <% else %>
+          <div class="actions mt-4 mb-2">
+            <%= form.submit "Update Account", class: "btn btn-primary w-100 p-2" %>
+          </div>
+          <div class="text-center"><%= link_to "Cancel", root_path, class:"text-decoration-none text-primary"%></div>
+        <% end %>
+
       <% end %>
     </div>
   </div>
