@@ -1,11 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
   <%= link_to "Homepage", root_path, class:"navbar-brand ms-5 fs-4" %>
   <ul class="navbar-nav me-5">
-    <li class="nav-item me-2">
-      <%= link_to "Login", login_path, class:"btn btn-outline-primary" %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "Signup", signup_path, class:"btn btn-outline-info" %>
-    </li>
+    <% if logged_in? %>
+      <li class="nav-item me-2">
+        <%= link_to current_user.username, user_path(current_user), class:"nav-link active" %>
+      </li>
+      <li class="nav-item me-2">
+        <%= link_to 'New Post', new_post_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Logout", logout_path, method: :delete, class:"btn btn-outline-info" %>
+      </li>
+    <% else %>
+      <li class="nav-item me-2">
+        <%= link_to "Login", login_path, class:"btn btn-outline-primary" %>
+      </li>
+      <li class="nav-item me">
+        <%= link_to "Signup", signup_path, class:"btn btn-outline-info" %>
+      </li>
+    <% end %>
   </ul>
 </nav>
