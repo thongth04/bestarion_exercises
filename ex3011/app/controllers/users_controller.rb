@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -38,15 +40,24 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    flash[:notice] = "Account was successfully deleted!"
-    redirect_to users_path
+    session[:user_id] = nil
+    flash[:notice] = "Account and associated posts successfully deleted!"
+    redirect_to posts_path
   end
 
   private
     def user_params
       params.require(:user).permit(:username, :email, :password, :birthday, :phone)
     end
+
     def find_user
       @user = User.find(params[:id])
+    end
+    
+    def require_same_user
+      if current_user != @user
+        flash[:alert] = "You can only edit your own account"
+        redirect_to @user
+      end
     end
 end

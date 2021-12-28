@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Posts</h1>
 
 <table class="table table-striped">
@@ -18,11 +16,13 @@
         <th scope="row"><%= post.id %></th>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
-        <td><%= post.user.username %></td>
+        <td><%= link_to post.user.username, user_path(post.user), class:"text-decoration-none fst-italic text-dark" %></td>
         <td>
           <%= link_to 'Show', post %>
-          <%= link_to 'Edit', edit_post_path(post) %>
-          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% if logged_in? && post.user == current_user %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         </td>
       </tr>
     <% end %>

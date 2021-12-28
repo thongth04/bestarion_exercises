@@ -1,5 +1,5 @@
 <div class="container mb-5">
-  <h1 class="text-center mt-4 mb-5">Users Management</h1>
+  <h1 class="text-center mt-4 mb-5">Authors</h1>
 
   <% if @users.count > 0 %>
     <table class="table table-striped">
@@ -10,7 +10,7 @@
           <th scope="col">Email</th>
           <th scope="col">Phone</th>
           <th scope="col">Birthday</th>
-          <th scope="col" class="text-center">Actions</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -22,12 +22,12 @@
             <td><%= user.phone %></td>
             <td><%= user.birthday %></td>
             <td>
-              <div class="d-flex justify-content-center">
-                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                  <%= link_to "Show", user_path(user), class:"btn btn-info" %>
+              <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <%= link_to "Show", user_path(user), class:"btn btn-info" %>
+                <% if logged_in? && user == current_user %>
                   <%= link_to "Edit", edit_user_path(user), class:"btn btn-warning" %>
                   <%= link_to "Delete", user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger" %>
-                </div>
+                <% end %>
               </div>
             </td>
           </tr>
