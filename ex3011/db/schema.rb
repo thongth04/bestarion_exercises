@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_28_035736) do
+ActiveRecord::Schema.define(version: 2021_12_29_071704) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_12_28_035736) do
     t.string "password_digest"
     t.date "birthday"
     t.string "phone"
+    t.boolean "admin", default: false
   end
 
   add_foreign_key "posts", "users"
